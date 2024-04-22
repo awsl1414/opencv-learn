@@ -1,14 +1,13 @@
-# 图像阈值
+### cv2.findContours(img, mode, method)
 
-## ret, dst= cv2.threshold(src thresh, maxval, type)
+mode:轮廓检索模式
 
-- src: 输入图， 只能输入单通道图像 通常来说为灰度图
-- dst：输出图I
-- thresh: 國值
-- maxval: 当像素值超过了阅值 （或者小于阈值 根据type来决定） 所赋予的值
-- type: 二值化操作的类型， 包含以下5种类型：cv2.THRESH_BINARY; cv2.THRESH_BINARY_INV; cv2.THRESH_TRUNC; cv2.THRESH_TOZERO; CV2.THRESH TOZERO_INV
-- cv2.THRESH_BINARY 超过阅值部分取maxval （最大值）： 否则取0
-- cv2.THRESH_BINARY_INV THRESH BINARY的反转
-- cv2.THRESH_TRUNC 大于间值部分设为间值 否则不变
-- cv2.THRESH_TOZERO 大于阅值部分不改变 否则设为0
-- cv2.THRESH_H_TOZERO_INV THRESH TOZERO的反转
+- RETR_EXTERNAL：只检索最外面的轮廓
+- RETRLIST：检索所有的轮廓，并将其保存到一条链表当中；
+- RETRCCOMP：检索所有的轮廓，并将他们组织为两层：顶层是各部分的外部边界，第二层是空洞的边界
+- RETRTREE：检索所有的轮廓，并重构嵌套轮廓的整个层次
+
+method:轮廓逼近方法
+
+- CHAINAPPROXNONE：以Freeman链码的方式输出轮廓，所有其他方法输出多边形（顶点的序列）。
+- CHAINAPPROXSIMPLE：压缩水平的、垂直的和斜的部分，也就是，函数只保留他们的终点部分
